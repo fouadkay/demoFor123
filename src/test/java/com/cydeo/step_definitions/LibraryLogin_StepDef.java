@@ -86,4 +86,22 @@ public class LibraryLogin_StepDef {
 //        Assert.assertEquals("User count verification is failed!",expectedUserCount,actualUserCount);
 //
 //    }
+
+
+    @When("I login using {string} and {string}")
+    public void i_login_using_and(String email, String password) {
+        libraryLoginPage.loginAsLibrarian(email,password);
+    }
+
+    @Then("account holder name should be {string}")
+    public void account_holder_name_should_be(String expectedAccountName) {
+
+        wait.until(ExpectedConditions.visibilityOf(dashboardPage.usernameLink));
+        String actualAccountName = dashboardPage.usernameLink.getText();
+
+        Assert.assertEquals(expectedAccountName,actualAccountName);
+    }
+
+
+
 }

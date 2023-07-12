@@ -13,4 +13,7 @@ public class DashboardPage {
 
     @FindBy(id = "user_count")
     public WebElement usersAmount;
+
+    @FindBy(css = "a#navbarDropdown>span")
+    public WebElement usernameLink;
 }
