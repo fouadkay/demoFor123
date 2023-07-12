@@ -7,10 +7,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LibraryLogin_StepDef {
 
     LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
@@ -32,8 +37,12 @@ public class LibraryLogin_StepDef {
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
 
-        String actualURL = Driver.getDriver().getCurrentUrl();
         String expectedURL = "dashboard";
+
+        wait.until(ExpectedConditions.urlContains(expectedURL));
+
+        String actualURL = Driver.getDriver().getCurrentUrl();
+
 
         Assert.assertTrue("dashboard is not appear on URL",actualURL.contains(expectedURL));
 
