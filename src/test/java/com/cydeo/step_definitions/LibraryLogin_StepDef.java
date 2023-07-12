@@ -1,8 +1,10 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.DashboardPage;
 import com.cydeo.pages.LibraryLoginPage;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,6 +17,7 @@ import java.time.Duration;
 public class LibraryLogin_StepDef {
 
     LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
+    DashboardPage dashboardPage = new DashboardPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
     @Given("I am on the login page")
@@ -66,12 +69,21 @@ public class LibraryLogin_StepDef {
     }
 
     @When("there should be {int} users")
-    public void there_should_be_users(Integer int1) {
+    public void there_should_be_users(int expectedUserAmount) {
 
+        //String expectedUserCount = ""+expectedUserAmount;
+        String expectedUserCount = String.valueOf(expectedUserAmount);
+        wait.until(ExpectedConditions.visibilityOf(dashboardPage.usersAmount));
+        String actualUserCount = dashboardPage.usersAmount.getText();
+        Assert.assertEquals("User count verification is failed!",expectedUserCount,actualUserCount);
 
     }
 
-
-
-
+//    @And("there should be {string} users")
+//    public void thereShouldBeUsers(String expectedUserCount) {
+//
+//        String actualUserCount = dashboardPage.usersAmount.getText();
+//        Assert.assertEquals("User count verification is failed!",expectedUserCount,actualUserCount);
+//
+//    }
 }
