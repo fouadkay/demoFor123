@@ -48,4 +48,30 @@ public class LibraryLogin_StepDef {
 
     }
 
+
+    @When("I enter username {string}")
+    public void i_enter_username(String string) {
+
+    }
+
+    @When("I enter password {string}")
+    public void i_enter_password(String string) {
+
+
+    }
+
+    @When("click the sign in button")
+    public void click_the_sign_in_button() {
+
+    }
+
+    @When("there should be {int} users")
+    public void there_should_be_users(Integer int1) {
+
+
+    }
+
+
+
+
 }
