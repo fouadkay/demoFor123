@@ -50,19 +50,19 @@ public class LibraryLogin_StepDef {
 
 
     @When("I enter username {string}")
-    public void i_enter_username(String string) {
-
+    public void i_enter_username(String email) {
+      libraryLoginPage.emailInput.sendKeys(email);
     }
 
     @When("I enter password {string}")
-    public void i_enter_password(String string) {
-
+    public void i_enter_password(String password) {
+    libraryLoginPage.passwordInput.sendKeys(password);
 
     }
 
     @When("click the sign in button")
     public void click_the_sign_in_button() {
-
+        libraryLoginPage.signinBtn.click();
     }
 
     @When("there should be {int} users")
