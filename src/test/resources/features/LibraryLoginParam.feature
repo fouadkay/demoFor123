@@ -1,6 +1,5 @@
 Feature: Login with parameters
 
-
   @librarianParam
   Scenario: Login as librarian 49
     Given I am on the login page
