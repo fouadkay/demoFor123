@@ -17,6 +17,4 @@ public class DashboardPage extends BasePage{
     @FindBy(css = "a#navbarDropdown>span")
     public WebElement usernameLink;
 
-
-
 }
