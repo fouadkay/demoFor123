@@ -15,16 +15,16 @@ public class UsersStepDef {
         switch (link.toLowerCase()){
 
             case "dashboard":
-
-
-
+            dashboardPage.dashboardLink.click();
+            break;
+            case "users":
+            dashboardPage.usersLink.click();
+            break;
+            case "books":
+                dashboardPage.booksLink.click();
+                break;
         }
-
-
-
-
     }
-
 
 
     @Then("table should have following column names:")
