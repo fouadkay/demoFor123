@@ -9,3 +9,4 @@ Feature: Login with parameters
     And there should be 2903 users
     Then dashboard should be displayed
       #number can be whatever you have there
+
